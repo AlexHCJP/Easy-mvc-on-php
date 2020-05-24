@@ -3,6 +3,6 @@
 return [
     'default' => 'mysql',
     'connections' => [
-        'mysql' => 'mysql://root:root@localhost/mvc',
+        'mysql' => 'mysql://root:1234A@localhost/mvc',
     ]
 ];

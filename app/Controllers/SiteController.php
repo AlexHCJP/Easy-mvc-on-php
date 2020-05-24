@@ -11,15 +11,9 @@ class SiteController
 
     function index()
     {
-
-//        /** @var Book $book */
-//        $book = new Book();
-//        $book->name = ':adad';
-//        $book->author = 'sdadasf';
-//        $book->save();
-//        return $book->id;
         return view('index', [
-            'books' => Book::all()
+            'books' => Book::all(),
+            'css' =>  css('bootstrap&index')
         ]);
     }
 

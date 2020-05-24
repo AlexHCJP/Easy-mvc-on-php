@@ -70,3 +70,25 @@ function view(string $template, array $variables = []) {
 function response(){
     return RouterProvider::response();
 }
+
+function css(string $styles)
+{
+    $styles = explode('&', $styles);
+    $existingsFiles = [];
+    $stylesOnConfig = config('css.styles');
+    $path = config('css.path');
+    foreach ($styles as $style)
+    {
+        if(in_array($style, array_keys($stylesOnConfig)))
+        {
+            $existingsFiles[] = $stylesOnConfig[$style];
+        }
+    }
+    $links = '';
+    foreach ($existingsFiles as $file)
+    {
+        $pathToFile = "css/{$file}";
+        $links .= "<link href=\"{$pathToFile}\" rel='stylesheet'>";
+    }
+    return $links;
+}
